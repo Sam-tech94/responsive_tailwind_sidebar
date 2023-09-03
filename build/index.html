@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Sidebar <Menu></Menu>
+  </title>
+</head>
+
+<body class="bg-gray-300 font-sans">
+  <nav class="bg-gradient-to-r from-purple-600 to-black shadow-md">
+    <div class="container mx-auto flex justify-between items-center px-6 py-4">
+      <a href="#" class="text-white text-2xl">Logo</a>
+
+      <ul class="hidden md:flex space-x-4">
+        <li>
+          <a href="#" class="text-white hover:bg-purple-700 px-4 py-2 rounded-lg transition">Home</a>
+        </li>
+        <li>
+          <a href="#" class="text-white hover:bg-purple-700 px-4 py-2 rounded-lg transition">About</a>
+        </li>
+        <li>
+          <a href="#" class="text-white hover:bg-purple-700 px-4 py-2 rounded-lg transition">Services</a>
+        </li>
+        <li>
+          <a href="#" class="text-white hover:bg-purple-700 px-4 py-2 rounded-lg transition">Contact</a>
+        </li>
+      </ul>
+
+      <button id="menuToggle" class=" text-white text-2xl cursor-pointer md:hidden">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+
+    <div
+      class="hidden fixed top-0 left-0 w-full h-full bg-black opacity-50 z-10 transition-opacity duration-300 ease-in-out"
+      id="overlay"></div>
+
+    <ul id="mobileMenu"
+      class=" z-20 bg-gradient-to-r from-purple-600 to-black fixed left-0 top-0 w-60 h-full transform -translate-x-full transition duration-300 ease-in-out md:hidden ">
+      <li class="flex justify-end px-4 py-2">
+        <button id="closeMenu" class="text-white cursor-pointer text-2xl ">&times</button>
+      </li>
+      <li>
+        <a href="#" class="text-white text-2xl hover:bg-purple-700 px-4 py-2 rounded-lg transition">Home</a>
+      </li>
+      <li>
+        <a href="#" class="text-white text-2xl hover:bg-purple-700 px-4 py-2 rounded-lg transition">About</a>
+      </li>
+      <li>
+        <a href="#" class="text-white text-2xl hover:bg-purple-700 px-4 py-2 rounded-lg transition">Services</a>
+      </li>
+      <li>
+        <a href="#" class="text-white text-2xl hover:bg-purple-700 px-4 py-2 rounded-lg transition">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    const overlay = document.getElementById('overlay');
+
+    function toggleMenu() {
+      const isOpen = mobileMenu.classList.contains('-translate-x-full');
+      mobileMenu.classList.toggle('-translate-x-full', !isOpen);
+      overlay.classList.toggle('hidden', !isOpen);
+    }
+
+    menuToggle.addEventListener('click', toggleMenu);
+    closeMenu.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+
+  </script>
+</body>
+
+</html>
